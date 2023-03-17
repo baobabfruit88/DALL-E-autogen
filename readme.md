@@ -33,10 +33,15 @@ To run this project, you will need to add the following environment variables to
 
 `API_ENDPOINT`
 
+## Suggestions json list 
+
+The list has to be a simple json array i.e (include the []'s in the file) : 
+
+```bash
+    ["entry1","entry2","entry3"]
+```
 
 ## Installation
-
-
 
 ```bash
     pip3 install -r requirements.txt
