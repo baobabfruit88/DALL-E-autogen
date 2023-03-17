@@ -1,12 +1,9 @@
-from generate import generate_image
 import os
 import json
 import random
-from os import path
 import subprocess
 import platform
-from dotenv import load_dotenv
-from dotenv import find_dotenv
+from generate import generate_image
 
 def auto_create(suggestion=None):
     # Load the suggestions from a JSON file
@@ -24,9 +21,9 @@ def auto_create(suggestion=None):
         suggestions.remove(suggestion)
 
         # Generate a random suggestion
-        
+
         suggestion = random.choice(suggestions)
-        
+
         # Save the modified list back to the JSON file
         with open("suggestion_list.json", "w") as f:
             json.dump(suggestions, f)
@@ -46,13 +43,14 @@ def auto_create(suggestion=None):
         + suggestion
         + " #opensea. #aiart #generativeart #creativecoding #digitalart #artificialintelligence #artofinstagram"
     )
-    
+
     if platform.system() == 'windows':
         subprocess.run(["explorer", 'images'])
     else:
         subprocess.run(["open", 'images'])
 
     return caption
+
 
 def update_entries(suggestionlist):
     newlist = suggestionlist.replace("\\", "")
