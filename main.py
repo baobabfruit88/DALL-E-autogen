@@ -1,13 +1,12 @@
+import os
+import time
+from dotenv import load_dotenv
+from dotenv import find_dotenv
 from creator import auto_create
 from creator import update_entries
 from creator import set_api_key
 from creator import set_dall_e_endpoint
 from quality_of_life import clear
-from dotenv import load_dotenv
-from dotenv import find_dotenv
-
-import time
-import os
 
 load_dotenv(find_dotenv())
 

@@ -1,8 +1,7 @@
+import os
+import json
 import requests
 from requests.structures import CaseInsensitiveDict
-import json
-import os
-from PIL import Image
 from dotenv import load_dotenv
 from dotenv import find_dotenv
 load_dotenv(find_dotenv())
@@ -11,7 +10,6 @@ load_dotenv(find_dotenv())
 API_ENDPOINT = os.environ.get("API_ENDPOINT")
 API_KEY = os.environ.get("API_KEY")
 
-# Define a function to generate an image from a given string
 def generate_image(text, size):
     # Generate image using DALL-E API
     headers = CaseInsensitiveDict()
@@ -31,16 +29,30 @@ def generate_image(text, size):
         size,
         size,
     )
-
-    resp = requests.post(API_ENDPOINT, headers=headers, data=data)
-
-    if resp.status_code != 200:
-        raise ValueError("Failed to generate image: %s" % resp.text)
+    try:
+        resp = requests.post(API_ENDPOINT, headers=headers, data=data, timeout=10)
+        resp.raise_for_status()  # Raise an exception if the status code is not 200
+    except requests.exceptions.Timeout:
+        print("The server did not respond within the allotted time.")
+    except requests.exceptions.HTTPError as error:
+        print(f"An HTTP error occurred: {error}")
+    except requests.exceptions.RequestException as error:
+        print(f"An error occurred: {error}")
 
     response_text = json.loads(resp.text)
     image_url = response_text["data"][0]["url"]
 
-    # Download and save the generated image
-    response = requests.get(image_url)
+    
+    try:
+        # Download and save the generated image
+        response = requests.get(image_url, timeout=10)
+        response.raise_for_status()  # Raise an exception if the status code is not 200
+    except requests.exceptions.Timeout:
+        print("The server did not respond within the allotted time.")
+    except requests.exceptions.HTTPError as error:
+        print(f"An HTTP error occurred: {error}")
+    except requests.exceptions.RequestException as error:
+        print(f"An error occurred: {error}")
+
     with open(f"images/{text}.jpeg", "wb") as f:
         f.write(response.content)
