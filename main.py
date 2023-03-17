@@ -31,11 +31,11 @@ while True:
 
     if choice == "1":
         print(auto_create())
-
+        time.sleep(6)
     elif choice == "2":
         suggestion = input("Enter your suggestion: ")
         print(auto_create(suggestion))
-
+        time.sleep(6)
     elif choice == "3":
         updateList = input("paste new list here")
         print(update_entries(updateList))
