@@ -2,6 +2,11 @@ from creator import auto_create
 from creator import update_entries
 from creator import set_api_key
 from creator import set_dall_e_endpoint
+import os
+
+from dotenv import load_dotenv
+from dotenv import find_dotenv
+load_dotenv(find_dotenv())
 
 while True:
     print("*************************DALL E IMAGE GENERATOR***************************")
@@ -15,6 +20,7 @@ while True:
         "* 5. Change endpoint for DALL-E (APP only tested with : https://api.openai.com/v1/images/generations)"
     )
     print("* 6. Quit this application")
+    print("* 7. show env values")
     print("*")
     print("*************************DALL E IMAGE GENERATOR***************************")
     choice = input("Enter your choice: ")
@@ -45,6 +51,10 @@ while True:
     elif choice == "6":
             print("Quitting...")
             break
+
+    elif choice == "7":
+            print(f"API key = {os.environ.get('API_KEY')}")
+            print(f"API endpoint = {os.environ.get('API_ENDPOINT')}")
 
     else:
         print("Invalid choice. Please choose an option from the menu.")

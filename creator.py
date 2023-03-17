@@ -3,9 +3,6 @@ import os
 import json
 import random
 from os import path
-from imgur_python import Imgur
-from datetime import datetime
-
 
 def auto_create(suggestion=None):
     # Load the suggestions from a JSON file
@@ -30,7 +27,7 @@ def auto_create(suggestion=None):
     size = "1024"
     text = text.replace(" ", "_")
     # Define the path to your image file and the caption for your post
-    img = generate_image(text, size)
+    generate_image(text, size)
 
     image_path = "images/" + suggestion.replace(" ", "_") + ".jpeg"
     caption = (
