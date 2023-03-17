@@ -11,15 +11,22 @@ from dotenv import find_dotenv
 def auto_create(suggestion=None):
     # Load the suggestions from a JSON file
     if suggestion is None:
-        with open("suggestion_list.json") as f:
-            suggestions = json.load(f)
-
-        # Generate a random suggestion
-        suggestion = random.choice(suggestions)
-
+        try:
+            with open("suggestion_list.json") as f:
+                suggestions = json.load(f)
+        except:
+            if platform.system() == 'windows':
+                subprocess.run(["explorer", ''])
+            else:
+                subprocess.run(["open", ''])
+            return "The json list has no values or is improperly formated, file location will be opened now so you can review."
         # Remove the selected suggestion from the list
         suggestions.remove(suggestion)
 
+        # Generate a random suggestion
+        
+        suggestion = random.choice(suggestions)
+        
         # Save the modified list back to the JSON file
         with open("suggestion_list.json", "w") as f:
             json.dump(suggestions, f)

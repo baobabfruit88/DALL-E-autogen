@@ -2,13 +2,17 @@ from creator import auto_create
 from creator import update_entries
 from creator import set_api_key
 from creator import set_dall_e_endpoint
-import os
-
+from quality_of_life import clear
 from dotenv import load_dotenv
 from dotenv import find_dotenv
+
+import time
+import os
+
 load_dotenv(find_dotenv())
 
 while True:
+    clear()
     print("*************************DALL E IMAGE GENERATOR***************************")
     print("*")
     print("* Menu:")
@@ -27,11 +31,11 @@ while True:
 
     if choice == "1":
         print(auto_create())
-
+        time.sleep(6)
     elif choice == "2":
         suggestion = input("Enter your suggestion: ")
         print(auto_create(suggestion))
-
+        time.sleep(6)
     elif choice == "3":
         updateList = input("paste new list here")
         print(update_entries(updateList))
@@ -49,8 +53,10 @@ while True:
         print(set_dall_e_endpoint(dall_e_endpoint))
     
     elif choice == "6":
+            print("5 seconds before i return to main menu")
             print(f"API key = {os.environ.get('API_KEY')}")
             print(f"API endpoint = {os.environ.get('API_ENDPOINT')}")
+            time.sleep(6)
 
     elif choice == "7":
             print("Quitting...")
