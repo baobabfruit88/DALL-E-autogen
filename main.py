@@ -19,8 +19,8 @@ while True:
     print(
         "* 5. Change endpoint for DALL-E (APP only tested with : https://api.openai.com/v1/images/generations)"
     )
-    print("* 6. Quit this application")
-    print("* 7. show env values")
+    print("* 6. show env values")
+    print("* 7. Quit this application")
     print("*")
     print("*************************DALL E IMAGE GENERATOR***************************")
     choice = input("Enter your choice: ")
@@ -49,12 +49,12 @@ while True:
         print(set_dall_e_endpoint(dall_e_endpoint))
     
     elif choice == "6":
-            print("Quitting...")
-            break
-
-    elif choice == "7":
             print(f"API key = {os.environ.get('API_KEY')}")
             print(f"API endpoint = {os.environ.get('API_ENDPOINT')}")
+
+    elif choice == "7":
+            print("Quitting...")
+            break
 
     else:
         print("Invalid choice. Please choose an option from the menu.")

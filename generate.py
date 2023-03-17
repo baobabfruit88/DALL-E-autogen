@@ -3,6 +3,9 @@ from requests.structures import CaseInsensitiveDict
 import json
 import os
 from PIL import Image
+from dotenv import load_dotenv
+from dotenv import find_dotenv
+load_dotenv(find_dotenv())
 
 # Set up the DALL-E API endpoint and authorization token
 API_ENDPOINT = os.environ.get("API_ENDPOINT")
