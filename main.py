@@ -20,7 +20,8 @@ while True:
     print("* 3. Create a new list for suggestions (supply a json array)")
     print("* 4. Fill in/change your API key for DALL-E")
     print(
-        "* 5. Change endpoint for DALL-E (APP only tested with : https://api.openai.com/v1/images/generations)"
+        "* 5. Change endpoint for DALL-E \
+(APP only tested with : https://api.openai.com/v1/images/generations)"
     )
     print("* 6. show env values")
     print("* 7. Quit this application")
@@ -48,26 +49,28 @@ while True:
 
     elif choice == "5":
         dall_e_endpoint = input(
-            "enter DALL-E endpoint (https://openai.com/blog/dall-e-api-now-available-in-public-beta)"
+            "enter DALL-E endpoint \
+(https://openai.com/blog/dall-e-api-now-available-in-public-beta)"
         )
         print(set_dall_e_endpoint(dall_e_endpoint))
-    
     elif choice == "6":
-            print("5 seconds before i return to main menu")
-            print(f"API key = {os.environ.get('API_KEY')}")
-            print(f"API endpoint = {os.environ.get('API_ENDPOINT')}")
-            time.sleep(6)
+        print("5 seconds before i return to main menu")
+        print(f"API key = {os.environ.get('API_KEY')}")
+        print(f"API endpoint = {os.environ.get('API_ENDPOINT')}")
+        time.sleep(6)
 
     elif choice == "7":
-            print("Quitting...")
-            break
-    
+        print("Quitting...")
+        break
+
     elif choice == "?":
         clear()
-        print ("***** General Info ******")
-        print ("1. This image generator has only been testetd with DALL-E, when using another endpoint expect strange behaviour.")
-        print ("2. When you use a json list, a random entry will be picked and the entry removed so you will not have duplicates.")
-        print ("Press return to go back to main")
+        print("***** General Info ******")
+        print("1. This image generator has only been testetd\
+with DALL-E, when using another endpoint expect strange behaviour.")
+        print("2. When you use a json list,\
+a random entry will be picked and the entry removed so you will not have duplicates.")
+        print("Press return to go back to main")
         input()
 
     else:
