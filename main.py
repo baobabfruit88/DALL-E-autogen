@@ -25,6 +25,7 @@ while True:
     )
     print("* 6. show env values")
     print("* 7. Quit this application")
+    print("* ? for general help")
     print("*")
     print("*************************DALL E IMAGE GENERATOR***************************")
     choice = input("Enter your choice: ")
@@ -61,6 +62,14 @@ while True:
     elif choice == "7":
             print("Quitting...")
             break
+    
+    elif choice == "?":
+        clear()
+        print ("***** General Info ******")
+        print ("1. This image generator has only been testetd with DALL-E, when using another endpoint expect strange behaviour.")
+        print ("2. When you use a json list, a random entry will be picked and the entry removed so you will not have duplicates.")
+        print ("Press return to go back to main")
+        input()
 
     else:
         print("Invalid choice. Please choose an option from the menu.")
