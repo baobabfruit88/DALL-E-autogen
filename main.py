@@ -17,7 +17,7 @@ while True:
     print("* Menu:")
     print("* 1. Generate image automatically")
     print("* 2. Supply suggestion manually")
-    print("* 3. Create a new list for suggestions (supply a json array)")
+    print("* 3. Create a new list for suggestions (supply a json array as : ['suggestion','suggestion',suggestion])")
     print("* 4. Fill in/change your API key for DALL-E")
     print(
         "* 5. Change endpoint for DALL-E (APP only tested with : https://api.openai.com/v1/images/generations)"
@@ -37,8 +37,9 @@ while True:
         print(auto_create(suggestion))
         time.sleep(6)
     elif choice == "3":
-        updateList = input("paste new list here")
-        print(update_entries(updateList))
+        print('opening file')
+        update_entries()
+        time.sleep(10)
 
     elif choice == "4":
         api_key = input(

@@ -52,17 +52,11 @@ def auto_create(suggestion=None):
     return caption
 
 
-def update_entries(suggestionlist):
-    newlist = suggestionlist.replace("\\", "")
-    print(newlist)
-    os.remove("suggestion_list.json")
-    with open("suggestion_list.json", "w") as f:
-        f.write(newlist)
-
-    if os.path.exists("suggestion_list.json"):
-        return "The file has been created !"
+def update_entries():
+    if platform.system() == 'windows':
+        subprocess.run(["explorer", 'suggestion_list.json'])
     else:
-        print("File creation failure, please update manually.")
+        subprocess.run(["open", 'suggestion_list.json'])
 
 
 def set_api_key(api_key):
