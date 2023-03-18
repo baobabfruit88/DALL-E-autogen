@@ -16,30 +16,18 @@ def auto_create(suggestion=None):
                 subprocess.run(["explorer", f'{filename}'])
             else:
                 subprocess.run(["open", f'{filename}'])
-            return "The file did not exist, we have ceated it please fill it"
-        try:
+            return "The suggestions file did not exist, we have ceated it please fill it"
+        else:
             with open("suggestion_list.json") as f:
                 suggestions = json.load(f)
-            if len(suggestions) < 1:
-                return "Your list is empty fill it first please"
-        except:
-            if platform.system() == 'windows':
-                subprocess.run(["explorer", f'{filename}'])
-            else:
-                subprocess.run(["open", f'{filename}'])
-            return "The json list has no values or is improperly formated please review"
-        # Remove the selected suggestion from the list
-        suggestions.remove(suggestion)
 
-        # Generate a random suggestion
+            suggestion = random.choice(suggestions)
+            suggestions.remove(suggestion)
 
-        suggestion = random.choice(suggestions)
+            with open("suggestion_list.json", "w") as f:
+                json.dump(suggestions, f)
 
-        # Save the modified list back to the JSON file
-        with open("suggestion_list.json", "w") as f:
-            json.dump(suggestions, f)
-
-        text = suggestion
+            text = suggestion
     else:
         text = suggestion
 
@@ -61,7 +49,6 @@ def auto_create(suggestion=None):
         subprocess.run(["open", 'images'])
 
     return caption
-
 
 def update_entries():
     filename = "suggestion_list.json"
