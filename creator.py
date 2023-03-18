@@ -8,27 +8,26 @@ from generate import generate_image
 def auto_create(suggestion=None):
     # Load the suggestions from a JSON file
     if suggestion is None:
-        try:
+        filename = "suggestion_list.json"
+        if not os.path.isfile(filename):
+            with open(filename, "w") as f:
+                f.write("[]")
+            if platform.system() == 'windows':
+                subprocess.run(["explorer", f'{filename}'])
+            else:
+                subprocess.run(["open", f'{filename}'])
+            return "The suggestions file did not exist, we have ceated it please fill it"
+        else:
             with open("suggestion_list.json") as f:
                 suggestions = json.load(f)
-        except:
-            if platform.system() == 'windows':
-                subprocess.run(["explorer", ''])
-            else:
-                subprocess.run(["open", ''])
-            return "The json list has no values or is improperly formated, file location will be opened now so you can review."
-        # Remove the selected suggestion from the list
-        suggestions.remove(suggestion)
 
-        # Generate a random suggestion
+            suggestion = random.choice(suggestions)
+            suggestions.remove(suggestion)
 
-        suggestion = random.choice(suggestions)
+            with open("suggestion_list.json", "w") as f:
+                json.dump(suggestions, f)
 
-        # Save the modified list back to the JSON file
-        with open("suggestion_list.json", "w") as f:
-            json.dump(suggestions, f)
-
-        text = suggestion
+            text = suggestion
     else:
         text = suggestion
 
@@ -53,10 +52,22 @@ def auto_create(suggestion=None):
 
 
 def update_entries():
-    if platform.system() == 'windows':
-        subprocess.run(["explorer", 'suggestion_list.json'])
+    filename = "suggestion_list.json"
+    if not os.path.isfile(filename):
+            with open(filename, "w") as f:
+                f.write("[]")
+            if platform.system() == 'windows':
+                subprocess.run(["explorer", f'{filename}'])
+            else:
+                subprocess.run(["open", f'{filename}'])
+            return "The file did not exist, we have ceated it please fill it"
     else:
-        subprocess.run(["open", 'suggestion_list.json'])
+        if platform.system() == 'windows':
+            subprocess.run(["explorer", f'{filename}'])
+        else:
+            subprocess.run(["open", f'{filename}'])
+        return "update as you see fit"
+
 
 
 def set_api_key(api_key):
