@@ -31,16 +31,19 @@ while True:
     choice = input("Enter your choice: ")
 
     if choice == "1":
+        print ("This message will self destruct in 10 seconds")
         print(auto_create())
-        time.sleep(6)
+        time.sleep(10)
     elif choice == "2":
+        print ("This message will self destruct in 10 seconds")
         suggestion = input("Enter your suggestion: ")
         print(auto_create(suggestion))
-        time.sleep(6)
+        time.sleep(10)
     elif choice == "3":
+        print ("This message will self destruct in 5 seconds")
         print('opening file')
         update_entries()
-        time.sleep(10)
+        time.sleep(5)
 
     elif choice == "4":
         api_key = input(
@@ -55,7 +58,7 @@ while True:
         )
         print(set_dall_e_endpoint(dall_e_endpoint))
     elif choice == "6":
-        print("5 seconds before i return to main menu")
+        print ("This message will self destruct in 5 seconds")
         print(f"API key = {os.environ.get('API_KEY')}")
         print(f"API endpoint = {os.environ.get('API_ENDPOINT')}")
         time.sleep(6)
