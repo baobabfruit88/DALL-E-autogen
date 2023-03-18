@@ -50,7 +50,6 @@ def auto_create(suggestion=None):
 
     return caption
 
-
 def update_entries():
     filename = "suggestion_list.json"
     if not os.path.isfile(filename):
@@ -67,8 +66,6 @@ def update_entries():
         else:
             subprocess.run(["open", f'{filename}'])
         return "update as you see fit"
-
-
 
 def set_api_key(api_key):
     # Read the contents of the .env file
