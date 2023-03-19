@@ -29,6 +29,10 @@ def generate_image(text, size):
         size,
         size,
     )
+
+    # To avoid UnboundLocalError
+    resp = None
+
     try:
         resp = requests.post(API_ENDPOINT, headers=headers, data=data, timeout=10)
         resp.raise_for_status()  # Raise an exception if the status code is not 200
@@ -39,9 +43,14 @@ def generate_image(text, size):
     except requests.exceptions.RequestException as error:
         print(f"An error occurred: {error}")
 
-    response_text = json.loads(resp.text)
-    image_url = response_text["data"][0]["url"]
+    if resp is not None:
+        response_text = json.loads(resp.text)
+        image_url = response_text["data"][0]["url"]
+    else:
+        image_url = None    # To avoid UnboundLocalError
 
+    # To avoid UnboundLocalError
+    response = None
     
     try:
         # Download and save the generated image

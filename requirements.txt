@@ -1,61 +1,6 @@
-altgraph @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot12/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-124/altgraph-0.17.2-py2.py3-none-any.whl
-async-generator==1.10
-attrs==22.2.0
-certifi==2022.12.7
-chardet==5.1.0
+certifi @ file:///Users/ec2-user/ci_py311/certifi_1678321191472/work/certifi
 charset-normalizer==3.1.0
-decorator==4.0.11
-distlib==0.3.6
-ed25519==1.5
-exceptiongroup==1.1.1
-filelock==3.10.0
-fleep==1.0.1
-future @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot12/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-124/future-0.18.2-py3-none-any.whl
-h11==0.14.0
-huepy==1.2.1
 idna==3.4
-imageio==2.1.2
-imageio-ffmpeg==0.4.8
-imgur-python==0.2.4
-iniconfig==2.0.0
-instabot==0.117.0
-InstagramAPI==1.0.2
-instagrapi==1.17.1
-macholib @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot12/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-124/macholib-1.15.2-py2.py3-none-any.whl
-mock==5.0.1
-moviepy==0.2.3.2
-numpy==1.23.4
-outcome==1.2.0
-packaging==23.0
-Pillow==9.3.0
-platformdirs==3.1.1
-pluggy==1.0.0
-proglog==0.1.10
-pycryptodomex==3.17
-pydantic==1.10.5
-PySocks==1.7.1
-pytest==7.2.2
-python-dateutil==2.8.2
 python-dotenv==1.0.0
-pytz==2022.7.1
-PyYAML==6.0
-requests==2.11.1
-requests-toolbelt==0.7.0
-responses==0.23.1
-schedule==1.1.0
-selenium==4.8.2
-six @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot12/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-124/six-1.15.0-py2.py3-none-any.whl
-sniffio==1.3.0
-sortedcontainers==2.4.0
-termcolor==2.1.0
-Token==1.8.6
-tomli==2.0.1
-tqdm==4.11.2
-trio==0.22.0
-trio-websocket==0.10.0
-types-PyYAML==6.0.12.8
-typing_extensions==4.5.0
+requests==2.28.2
 urllib3==1.26.15
-virtualenv==20.21.0
-wsproto==1.2.0
-wxPython==4.2.0

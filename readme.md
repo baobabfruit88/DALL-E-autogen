@@ -45,5 +45,6 @@ The list has to be a simple json array i.e (include the []'s in the file) :
 
 ```bash
     pip3 install -r requirements.txt
+    python3 main.py
 ```
     
