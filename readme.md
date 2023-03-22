@@ -9,6 +9,9 @@ This small CLI application written in python uses an API key and Endpoint for DA
 
 - [@baobabfruit88](https://github.com/baobabfruit88/)
 
+## Contributers
+
+-[@greymattt] 
 
 ## Contributing
 
