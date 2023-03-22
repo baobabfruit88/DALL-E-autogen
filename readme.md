@@ -11,7 +11,7 @@ This small CLI application written in python uses an API key and Endpoint for DA
 
 ## Contributers
 
-- [@greymattt] 
+- [@greymattt](https://github.com/greymattt/)
 
 ## Contributing
 
